@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Min_renv_not_par_serv_jur__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Min renv au not par le serv jur</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

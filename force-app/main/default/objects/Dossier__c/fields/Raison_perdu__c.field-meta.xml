@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Raison_perdu__c</fullName>
+    <externalId>false</externalId>
+    <label>Raison perdu</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bq-just-Manque de capacité--</fullName>
+                <default>false</default>
+                <label>Bq-just-Manque de capacité--</label>
+            </value>
+            <value>
+                <fullName>Bq-just-Durée d&apos;activité pro ou salarial--</fullName>
+                <default>false</default>
+                <label>Bq-just-Durée d&apos;activité pro ou salarial--</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-Taux demandé-</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-Taux demandé-</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-Montant du crédit-</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-Montant du crédit-</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-pdc-MRE</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-pdc-MRE</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-pdc-Etranger</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-pdc-Etranger</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-pdc-Faible revenu</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-pdc-Faible revenu</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-pdc-Employeur de l&apos;emprunteur</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-pdc-Employeur de l&apos;emprunteur</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-pdc-Activité pro de l&apos;emprunteur</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-pdc-Activité pro de l&apos;emprunteur</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-TDC-</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-TDC-</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-TDC-Crédit infine</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-TDC-Crédit infine</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-TDC-Taux variable</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-TDC-Taux variable</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-TDC-Taux variable cappé</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-TDC-Taux variable cappé</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-TDC-Rachat de crédit</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-TDC-Rachat de crédit</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-TDC-Participatif</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-TDC-Participatif</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-TDC-FOGARIM</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-TDC-FOGARIM</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-Montage -Fin des fdn</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-Montage -Fin des fdn</label>
+            </value>
+            <value>
+                <fullName>Bq-just-hcg-Montage -Fin autre</fullName>
+                <default>false</default>
+                <label>Bq-just-hcg-Montage -Fin autre</label>
+            </value>
+            <value>
+                <fullName>Bq-just-Manque de justifs--</fullName>
+                <default>false</default>
+                <label>Bq-just-Manque de justifs--</label>
+            </value>
+            <value>
+                <fullName>Bq-just-Contentieux--</fullName>
+                <default>false</default>
+                <label>Bq-just-Contentieux--</label>
+            </value>
+            <value>
+                <fullName>Bq-just-Autre: à préciser--</fullName>
+                <default>false</default>
+                <label>Bq-just-Autre: à préciser--</label>
+            </value>
+            <value>
+                <fullName>Bq-injust-Délai banque--</fullName>
+                <default>false</default>
+                <label>Bq-injust-Délai banque--</label>
+            </value>
+            <value>
+                <fullName>Bq-injust-Autre: à préciser--</fullName>
+                <default>false</default>
+                <label>Bq-injust-Autre: à préciser--</label>
+            </value>
+            <value>
+                <fullName>Clt-Reçu une meilleure offre---</fullName>
+                <default>false</default>
+                <label>Clt-Reçu une meilleure offre-m--</label>
+            </value>
+            <value>
+                <fullName>Client-Reçu une meilleure offre-hm--</fullName>
+                <default>false</default>
+                <label>Client-Reçu une meilleure offre-hm--</label>
+            </value>
+            <value>
+                <fullName>Clt-Desistement sur le bien---</fullName>
+                <default>false</default>
+                <label>Clt-Desistement sur le bien---</label>
+            </value>
+            <value>
+                <fullName>Clt-Reporte le projet - contentieux à régulariser---</fullName>
+                <default>false</default>
+                <label>Clt-Reporte le projet - contentieux à régulariser---</label>
+            </value>
+            <value>
+                <fullName>Clt-Injoignable permanent---</fullName>
+                <default>false</default>
+                <label>Clt-Injoignable permanent---</label>
+            </value>
+            <value>
+                <fullName>Clt-Autre à préciser---</fullName>
+                <default>false</default>
+                <label>Clt-Autre à préciser---</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

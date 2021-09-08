@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>D_lai_OPC_d_pass__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( D_lai_d_obtention_accord_OPC__c &gt; 7
+,True,False)</formula>
+    <label>Délai OPC dépassé</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

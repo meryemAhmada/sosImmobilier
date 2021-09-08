@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Simulation_mandatory</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(
+ISBLANK( Simulation__c ),
+NOT(ISPICKVAL( Simulation__r.Resultat__c ,&apos;Trouvé le bien-AFD&apos;)),
+Simulation__r.Actif__c = false
+)</errorConditionFormula>
+    <errorDisplayField>Simulation__c</errorDisplayField>
+    <errorMessage>Vous ne pouvez pas créer votre dossier qu&apos;à partir d&apos;une simulation active avec statut &apos;Trouvé le bien-AFD&apos;</errorMessage>
+</ValidationRule>

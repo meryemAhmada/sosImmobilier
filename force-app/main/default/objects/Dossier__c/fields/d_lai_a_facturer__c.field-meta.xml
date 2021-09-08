@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>d_lai_a_facturer__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (
+(  Dossier_d_bloqu__c = true) &amp;&amp;  (Facture_deposee__c = false ), today () -  Date_deblocage__c,
+
+IF (( Dossier_d_bloqu__c = true) &amp;&amp;  (Facture_deposee__c = true ),  Date_d_p_t_facture__c -  Date_deblocage__c , 0))</formula>
+    <label>délai a facturer</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

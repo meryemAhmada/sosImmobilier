@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>D_HOT_WARM_COLD_WON__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+(Etape_Actuelle__c = &quot;Dossier Constitué P1&quot;)|| 
+(Etape_Actuelle__c = &quot;Dépôt Banque P1&quot;)||
+(Etape_Actuelle__c = &quot;Confirmation Envoi à l&apos;analyse&quot;)||
+(Etape_Actuelle__c = &quot;Pièces manquantes P1&quot;)||
+(Etape_Actuelle__c = &quot;Dossier complet P1&quot;)||
+(Etape_Actuelle__c = &quot;Expertise du bien non requise&quot;)||
+(Etape_Actuelle__c = &quot;Expertise du bien requise&quot;)||
+(Etape_Actuelle__c = &quot;Expertise du bien réalisée&quot;)||
+(Etape_Actuelle__c = &quot;Attente Décision Banque&quot;)||
+(Etape_Actuelle__c = &quot;Dossier Accordé&quot;)||
+(Etape_Actuelle__c = &quot;Envoi des conditions 1 au client&quot;)||
+(Etape_Actuelle__c = &quot;Retour à charges&quot;)||
+(Etape_Actuelle__c = &quot;Decision banque re- Retour à charges&quot;)||
+(Etape_Actuelle__c = &quot;Envoi des conditions 2 au client&quot;)||
+(Etape_Actuelle__c = &quot;Accord client sur conditions et reserves&quot;)||
+(Etape_Actuelle__c = &quot;RDV Ouverture de compte programmé&quot;)||
+(Etape_Actuelle__c = &quot;RDV Ouverture Compte&quot;)||
+(Etape_Actuelle__c = &quot;RDV Ouverture de compte&quot;),&quot;Doss Warm&quot;,
+IF(
+(Etape_Actuelle__c = &quot;Ouverture de compte réalisée&quot;)|| 
+(Etape_Actuelle__c = &quot;Signature de l&apos;OPC&quot;)||
+(Etape_Actuelle__c = &quot;Signature Assurances&quot;)||
+(Etape_Actuelle__c = &quot;Exemplaires de docs envoyés au client&quot;)||
+(Etape_Actuelle__c = &quot;RDV pris visite medicale&quot;)||
+(Etape_Actuelle__c = &quot;Lettre d&apos;accompagnement fourni au client&quot;)||
+(Etape_Actuelle__c = &quot;Visite medicale effectuée&quot;)||
+(Etape_Actuelle__c = &quot;Réponse assurance reçue&quot;)||
+(Etape_Actuelle__c = &quot;Dossier Constitué P2et3&quot;)||
+(Etape_Actuelle__c = &quot;Dépôt Banque P2et3&quot;)||
+(Etape_Actuelle__c = &quot;Pièces manquantes P2et3&quot;)||
+(Etape_Actuelle__c = &quot;Dossier complet P2et3&quot;)||
+(Etape_Actuelle__c = &quot;Virement du premier salaire domicile&quot;)||
+(Etape_Actuelle__c = &quot;Env de l&apos;acc sign cach ou l&apos;OPC au not&quot;)||
+(Etape_Actuelle__c = &quot;VEFA caution bq remise par bq du prom&quot;)||
+(Etape_Actuelle__c = &quot;Lettre d&apos;engagement notaire chez Banque&quot;)||
+(Etape_Actuelle__c = &quot;Levée des reserves&quot;)||
+(Etape_Actuelle__c = &quot;Contrat légalisé transmis par client&quot;)||
+(Etape_Actuelle__c = &quot;Env des contr de prêt signés leg à la bq&quot;)||
+(Etape_Actuelle__c = &quot;Env copie contr au not pour l&apos;éd de min&quot;)||
+(Etape_Actuelle__c = &quot;Minute établie par le notaire&quot;)||
+(Etape_Actuelle__c = &quot;Env des contr de prêt signés leg à la bq&quot;)||
+(Etape_Actuelle__c = &quot;Env copie contr au not pour l&apos;éd de min&quot;)||
+(Etape_Actuelle__c = &quot;Minute établie par le notaire&quot;)||
+(Etape_Actuelle__c = &quot;Minute Etablie par le notaire&quot;)||
+(Etape_Actuelle__c = &quot;Env copie contr au not pour l&apos;éd de min&quot;)||
+(Etape_Actuelle__c = &quot;Env min au serv jur(via ag)pour val&quot;)||
+(Etape_Actuelle__c = &quot;Minute validée par le service juridique1&quot;)||
+(Etape_Actuelle__c = &quot;Min renv au not par le serv jur&quot;),&quot;Doss Hot&quot;,
+IF(
+(Etape_Actuelle__c = &quot;Dossier Perdu&quot;),&quot;Doss Cold&quot;,&quot;Doss Won&quot;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>DOSS_HOT_WARM_COLD_WON</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

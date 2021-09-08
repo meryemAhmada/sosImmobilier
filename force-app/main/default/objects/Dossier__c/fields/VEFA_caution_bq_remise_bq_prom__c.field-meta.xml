@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VEFA_caution_bq_remise_bq_prom__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>VEFA caution bq remise par bq du prom</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

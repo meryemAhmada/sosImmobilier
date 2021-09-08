@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>D_Certificat_de_propri_t_du_bien__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Certificat de propriété du bien objet du crédit demandé</inlineHelpText>
+    <label>D Certificat de propriété du bien</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

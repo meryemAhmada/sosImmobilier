@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pieces_manquantes_P2_3__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Pièces manquantes P2et3</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

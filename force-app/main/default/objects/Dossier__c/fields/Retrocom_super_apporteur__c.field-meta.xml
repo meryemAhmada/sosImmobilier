@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Retrocom_super_apporteur__c</fullName>
+    <externalId>false</externalId>
+    <label>Retrocom Super app - paiement justif</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Contrat apporteur + STC signé</fullName>
+                <default>true</default>
+                <label>Contrat apporteur + STC signé</label>
+            </value>
+            <value>
+                <fullName>Facture AE + STC signé</fullName>
+                <default>false</default>
+                <label>Facture AE + STC signé</label>
+            </value>
+            <value>
+                <fullName>Facture Sté + STC signé</fullName>
+                <default>false</default>
+                <label>Facture Sté + STC signé</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

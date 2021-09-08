@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Doss_Temp__c</fullName>
+    <externalId>false</externalId>
+    <formula>If(
+(Etape_Actuelle__c = &quot;Attente Décision Banque&quot;) || (Etape_Actuelle__c = &quot;Retour à charges&quot;),&quot;Cold bank side&quot;,
+
+If(
+(Etape_Actuelle__c = &quot;Pièces manquantes P1&quot;),&quot;Cold client side&quot;,
+
+If(
+(Transmettre_Dossier_l_agence__c = False) &amp;&amp; (Etape_Actuelle__c = &quot;Dossier Perdu&quot;) ,&quot;Dead&quot;,
+
+If(
+((Transmettre_Dossier_l_agence__c = True)  || ( Signature_de_OPC__c  = True)) &amp;&amp; ( Etape_Actuelle__c = &quot;Dossier Perdu&quot;),&quot;Lost&quot;,
+
+If(
+(Transmettre_Dossier_l_agence__c = True) &amp;&amp; (  Signature_de_OPC__c   = False) &amp;&amp; ( Etape_Actuelle__c  &lt;&gt;  &quot;Dossier Perdu&quot;) &amp;&amp; ( Dossier_d_bloqu__c = False),&quot;Warm&quot;,
+
+If(
+(Signature_de_OPC__c   = True) &amp;&amp; ( Contrat_l_galis_transmis_par_client__c  = False) &amp;&amp; ( Etape_Actuelle__c  &lt;&gt;  &quot;Dossier Perdu&quot;) &amp;&amp; ( Dossier_d_bloqu__c = False),&quot;Hot&quot;,
+
+If(
+(Contrat_l_galis_transmis_par_client__c  = True) &amp;&amp; ( Etape_Actuelle__c  &lt;&gt;  &quot;Dossier Perdu&quot;) &amp;&amp; ( Dossier_d_bloqu__c = False),&quot;Super Hot&quot;,
+
+If(
+(Dossier_d_bloqu__c =True),&quot;Won&quot;,
+
+&quot;Cold MCI side&quot;))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Doss Temp</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

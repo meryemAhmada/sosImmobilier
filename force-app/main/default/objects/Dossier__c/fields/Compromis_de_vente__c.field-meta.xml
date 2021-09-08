@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compromis_de_vente__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Compromis de vente visé par le notaire, acte de reservation visé par le promoteur ou attestation de notaire OU descriptif de bien ou Contrat de vente preliminaire et cahier de charges signé et légalisé dans le cadre d&apos;une VEFA. -  - Signé et/ou cacheté -</inlineHelpText>
+    <label>Compromis de vente</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Requis</fullName>
+                <default>false</default>
+                <label>Requis</label>
+            </value>
+            <value>
+                <fullName>Non requis</fullName>
+                <default>true</default>
+                <label>Non requis</label>
+            </value>
+            <value>
+                <fullName>Reçu copie</fullName>
+                <default>false</default>
+                <label>Reçu copie</label>
+            </value>
+            <value>
+                <fullName>Reçu original</fullName>
+                <default>false</default>
+                <label>Reçu original</label>
+            </value>
+            <value>
+                <fullName>Reçu copie &amp; original</fullName>
+                <default>false</default>
+                <label>Reçu copie &amp; original</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Devis_de_notaire_Sign_e_Cachet_e__c</fullName>
+    <externalId>false</externalId>
+    <label>Devis de notaire - Signé-e &amp; Cacheté-e</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Non requis</fullName>
+                <default>false</default>
+                <label>Non requis</label>
+            </value>
+            <value>
+                <fullName>Requis</fullName>
+                <default>false</default>
+                <label>Requis</label>
+            </value>
+            <value>
+                <fullName>Reçu copie</fullName>
+                <default>false</default>
+                <label>Reçu copie</label>
+            </value>
+            <value>
+                <fullName>Reçu original</fullName>
+                <default>false</default>
+                <label>Reçu original</label>
+            </value>
+            <value>
+                <fullName>Reçu copie &amp; original</fullName>
+                <default>false</default>
+                <label>Reçu copie &amp; original</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

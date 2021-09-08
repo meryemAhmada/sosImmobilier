@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Simple_descriptif_du_bien_objet_du_cr_di__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Simple descriptif du bien objet du crédit demandé</inlineHelpText>
+    <label>Simple descriptif du bien</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Requis</fullName>
+                <default>false</default>
+                <label>Requis</label>
+            </value>
+            <value>
+                <fullName>Non requis</fullName>
+                <default>false</default>
+                <label>Non requis</label>
+            </value>
+            <value>
+                <fullName>Reçu copie</fullName>
+                <default>false</default>
+                <label>Reçu copie</label>
+            </value>
+            <value>
+                <fullName>Reçu original</fullName>
+                <default>false</default>
+                <label>Reçu original</label>
+            </value>
+            <value>
+                <fullName>Reçu copie &amp; original</fullName>
+                <default>false</default>
+                <label>Reçu copie &amp; original</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

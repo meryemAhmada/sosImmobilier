@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>D_Sign_min_par_bq_vend_ach_dev_not__c</fullName>
+    <externalId>false</externalId>
+    <label>Dte-Sig min par bq le vend ach dev not</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

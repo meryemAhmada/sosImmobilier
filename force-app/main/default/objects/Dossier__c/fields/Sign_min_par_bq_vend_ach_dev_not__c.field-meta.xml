@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sign_min_par_bq_vend_ach_dev_not__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Sign min par la bq le vend l&apos;ach dev not</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

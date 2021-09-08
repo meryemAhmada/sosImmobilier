@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Etat_de_la_construction__c</fullName>
+    <externalId>false</externalId>
+    <label>Etat de la construction</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Titré</fullName>
+                <default>true</default>
+                <label>Titré</label>
+            </value>
+            <value>
+                <fullName>Gros Œuvres</fullName>
+                <default>false</default>
+                <label>Gros Œuvres</label>
+            </value>
+            <value>
+                <fullName>Sur Plan</fullName>
+                <default>false</default>
+                <label>Sur Plan</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

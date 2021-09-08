@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delai_deblocage__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+( Dossier_d_bloqu__c = False) &amp;&amp;
+( Env_contr_pret_signes_leg_bq__c = True),
+TODAY() - D_Env_contr_pret_signes_leg_bq__c,
+
+IF(
+( Dossier_d_bloqu__c = True),
+ Date_deblocage__c - D_Env_contr_pret_signes_leg_bq__c,
+
+0))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Délai de déblocage depuis sign des CP</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

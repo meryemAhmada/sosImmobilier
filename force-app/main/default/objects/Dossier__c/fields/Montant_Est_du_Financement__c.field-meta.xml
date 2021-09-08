@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Montant_Est_du_Financement__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(contact__r.Rach_CD1_Montant_financer_par_emprunt__c+ contact__r.Montant_financer_par_emprunt__c = 0,
+Simulation__r.Rach_CD1_Montant_financer_par_emprunt__c+ Simulation__r.Montant_financer_par_emprunt__c
+,contact__r.Rach_CD1_Montant_financer_par_emprunt__c+ contact__r.Montant_financer_par_emprunt__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Montant Est du Financement</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

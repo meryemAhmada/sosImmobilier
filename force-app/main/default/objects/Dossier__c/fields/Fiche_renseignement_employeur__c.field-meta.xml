@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fiche_renseignement_employeur__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Fiche renseignement employeur -  - Signé-e &amp; Cacheté-e - P2 Original</inlineHelpText>
+    <label>Fiche renseignement employeur</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Requis</fullName>
+                <default>false</default>
+                <label>Requis</label>
+            </value>
+            <value>
+                <fullName>Non requis</fullName>
+                <default>true</default>
+                <label>Non requis</label>
+            </value>
+            <value>
+                <fullName>Reçu copie</fullName>
+                <default>false</default>
+                <label>Reçu copie</label>
+            </value>
+            <value>
+                <fullName>Reçu original</fullName>
+                <default>false</default>
+                <label>Reçu original</label>
+            </value>
+            <value>
+                <fullName>Reçu copie &amp; original</fullName>
+                <default>false</default>
+                <label>Reçu copie &amp; original</label>
+            </value>
+            <value>
+                <fullName>REQUIS P1</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>REQUIS P1</label>
+            </value>
+            <value>
+                <fullName>REQUIS P2</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>REQUIS P2</label>
+            </value>
+            <value>
+                <fullName>REQUIS P3</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>REQUIS P3</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

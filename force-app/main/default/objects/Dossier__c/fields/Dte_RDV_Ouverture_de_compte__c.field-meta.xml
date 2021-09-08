@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dte_RDV_Ouverture_de_compte__c</fullName>
+    <externalId>false</externalId>
+    <label>Dte RDV Ouverture de compte</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>true</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_de_taux_OC__c</fullName>
+    <externalId>false</externalId>
+    <label>Type de taux - OC</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fixe</fullName>
+                <default>false</default>
+                <label>Fixe</label>
+            </value>
+            <value>
+                <fullName>Variable</fullName>
+                <default>false</default>
+                <label>Variable</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

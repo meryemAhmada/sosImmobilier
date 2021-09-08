@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RetroCom_Reste_payer_Net_en_V_Parr__c</fullName>
+    <externalId>false</externalId>
+    <formula>RetroCom_Du_Net_en_V_Parrain__c -  RetroCom_Total_pay_Net_en_V_Parrai__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>RetroCom - Reste à payer -Net en V -Parr</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

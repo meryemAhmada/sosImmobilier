@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Proprietaire__c</columns>
+    <columns>Banque__c</columns>
+    <columns>contact__c</columns>
+    <columns>Etape_Actuelle__c</columns>
+    <columns>Date_depot_dossier__c</columns>
+    <columns>Date_deblocage__c</columns>
+    <columns>Parrain_Dossier__c</columns>
+    <columns>Super_apporteur_Dossier__c</columns>
+    <columns>Apporteur_Dossier__c</columns>
+    <columns>Super_banquier__c</columns>
+    <columns>Banquier__c</columns>
+    <columns>Montant_du_Financement__c</columns>
+    <columns>COM_SOS_BRUT_en__c</columns>
+    <columns>com_Brut_en_V_HT_SOS__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Tout</label>
+</ListView>

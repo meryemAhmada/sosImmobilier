@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>D_lai_ODC__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(
+( Compte_Bancaire_Ouvert__c = true), D_Ouverture_de_cmpt_realisee__c -  Date_accord_dossier__c ,
+if( 
+(Compte_Bancaire_Ouvert__c = false), today() -  Date_accord_dossier__c ,
+0))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Délai ODC</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

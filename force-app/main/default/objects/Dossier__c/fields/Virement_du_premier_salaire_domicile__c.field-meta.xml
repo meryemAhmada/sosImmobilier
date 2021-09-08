@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Virement_du_premier_salaire_domicile__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Virement du premier salaire domicile</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

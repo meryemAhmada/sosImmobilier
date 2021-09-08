@@ -1,0 +1,1561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Immo</fullName>
+    <active>true</active>
+    <label>Immo</label>
+    <picklistValues>
+        <picklist>Attestation_de_decompte_Solde_du_cr_dit__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Attestation_de_main_lev_e_Sign_e__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Attestation_de_pension__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Attestation_de_salaire__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Attestation_de_travail__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Avis_imposition__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Bilans_de_la_societe__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>COM_SOS_BRUT_en__c</picklist>
+        <values>
+            <fullName>0%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0%2E5%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%25</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Carte_Pro_Autorisation_d_exercer__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Carte_de_r_sidence__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Certificat_de_propri_t_du_bien__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Certificat_propriete__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Compromis_de_vente__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contrat_de_Bail__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contrat_de_travail__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contrat_de_travail_homologue__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Copie_Passeport__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Devis_d_architecte_Sign_e_Cachet_e__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Devis_de_construction__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Devis_de_notaire_Sign_e_Cachet_e__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Dur_e__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>11</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>13</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>14</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>15</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>16</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>17</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>18</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>19</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>20</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>21</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>23</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>24</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>26</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>27</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>28</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>9</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Engagement_de_transfer__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Engagement_domiciliation_revenus__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Engagement_domiciliation_salaire__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Equivalent_de_bilan__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Etat_de_la_construction__c</picklist>
+        <values>
+            <fullName>Gros Œuvres</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sur Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Titré</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Etat_engagement__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Fiche_renseignement_employeur__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Fiches_de_paie_2__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Fiches_de_paie__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Justificatif_de_domicile__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Justificatifs_revenus_compl_mentaires__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Modalit_de_paiement_de_l_ADI_OC__c</picklist>
+        <values>
+            <fullName>Mensualisée</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prime Unique</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Modalit_de_paiement_de_l_ADI__c</picklist>
+        <values>
+            <fullName>Mensualisée</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prime unique</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Modele_J__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PV_de_distribution_des_dividendes__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Parrain_paye_impaye__c</picklist>
+        <values>
+            <fullName>Dossier en cours</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Paiement en cours</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payé</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Patente__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Prospect_ou_Client_V_A_V_de_la_banque__c</picklist>
+        <values>
+            <fullName>Client</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Prospect</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Raison_perdu__c</picklist>
+        <values>
+            <fullName>Bq-injust-Autre%3A à%C2%A0préciser--</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-injust-Délai banque--</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-Autre%3A à%C2%A0préciser--</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-Contentieux--</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-Durée d%27activité pro ou salarial--</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-Manque de capacité--</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-Manque de justifs--</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-Montage -Fin autre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-Montage -Fin des fdn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-Montant du crédit-</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-TDC-</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-TDC-Crédit infine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-TDC-FOGARIM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-TDC-Participatif</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-TDC-Rachat de crédit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-TDC-Taux variable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-TDC-Taux variable cappé</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-Taux demandé-</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-pdc-Activité pro de l%27emprunteur</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-pdc-Employeur de l%27emprunteur</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-pdc-Etranger</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-pdc-Faible revenu</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bq-just-hcg-pdc-MRE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client-Reçu une meilleure offre-hm--</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clt-Autre à%C2%A0préciser---</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clt-Desistement sur le bien---</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clt-Injoignable permanent---</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clt-Reporte le projet - contentieux à régulariser---</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clt-Reçu une meilleure offre---</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Recap_CNSS__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Registre_de_commerce__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Releves_compte_bancaire_perso_12mois__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Releves_compte_bancaire_perso_3mois__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Releves_compte_bancaire_perso_6mois__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Releves_compte_bancaire_pro_12mois__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Retrocom_apporteur_paiement_justif__c</picklist>
+        <values>
+            <fullName>Contrat apporteur %2B STC signé</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Facture AE %2B STC signé</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facture Sté %2B STC signé</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Retrocom_parrain_Justif_paiement__c</picklist>
+        <values>
+            <fullName>Contrat apporteur %2B STC signé</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Facture AE %2B STC signé</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facture Sté %2B STC signé</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Retrocom_super_apporteur__c</picklist>
+        <values>
+            <fullName>Contrat apporteur %2B STC signé</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Facture AE %2B STC signé</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facture Sté %2B STC signé</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Simple_descriptif_du_bien_objet_du_cr_di__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Tableau_d_amortissement__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Taxe_professionnelle__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Traduction_des_documents__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_de_Credit__c</picklist>
+        <values>
+            <fullName>Autre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit immobilier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rachat de credit immobilier</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_de_Taux__c</picklist>
+        <values>
+            <fullName>Fixe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Variable</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_de_taux_OB__c</picklist>
+        <values>
+            <fullName>Fixe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Variable</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_de_taux_OC__c</picklist>
+        <values>
+            <fullName>Fixe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Variable</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>VILLE_BANQUE__c</picklist>
+        <values>
+            <fullName>Agadir</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Al Hoceima</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beni Mellal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Casablanca</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>El Jadida</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Essaouira</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kenitra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Khribga</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marrakesh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meknes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mohammedia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nador</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oujda</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rabat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sale</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Settat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TanTan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tanger</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Temara</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tetouan</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Ville__c</picklist>
+        <values>
+            <fullName>Autre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Casablanca</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marrakech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meknes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mohammedia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rabat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tanger</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Ville_bien__c</picklist>
+        <values>
+            <fullName>Autre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Casablanca</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marrakech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meknes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mohammedia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rabat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tanger</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cin_marocaine__c</picklist>
+        <values>
+            <fullName>Non requis</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu copie %26 original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reçu original</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

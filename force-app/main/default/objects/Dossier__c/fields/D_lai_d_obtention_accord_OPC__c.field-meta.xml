@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>D_lai_d_obtention_accord_OPC__c</fullName>
+    <externalId>false</externalId>
+    <formula>If( 
+( Banque__r.Name   &lt;&gt; &quot;CIH BANK&quot;)
+&amp;&amp; (Depot_Banque__c = True)
+&amp;&amp; (Pieces_manquantes_P1__c = False)
+&amp;&amp;(Transmettre_Dossier_l_agence__c = False),
+TODAY() - Date_depot_dossier__c,
+
+If( 
+( Banque__r.Name   &lt;&gt; &quot;CIH BANK&quot;)
+&amp;&amp; (Depot_Banque__c = True)
+&amp;&amp; (Pieces_manquantes_P1__c = False)
+&amp;&amp;(Transmettre_Dossier_l_agence__c = True),
+Date_accord_dossier__c - Date_depot_dossier__c, 
+
+IF( 
+( Banque__r.Name   &lt;&gt; &quot;CIH BANK&quot;)
+&amp;&amp; (Depot_Banque__c = True) 
+&amp;&amp; (Pieces_manquantes_P1__c = True)
+&amp;&amp; ( Transmettre_Dossier_l_agence__c = False),
+TODAY() - Date_Compl_tude_Dossier__c, 
+
+IF( 
+( Banque__r.Name   &lt;&gt; &quot;CIH BANK&quot;)
+&amp;&amp; (Depot_Banque__c = True) 
+&amp;&amp; (Pieces_manquantes_P1__c = True)
+&amp;&amp; ( Transmettre_Dossier_l_agence__c = True),
+Date_accord_dossier__c - Date_Compl_tude_Dossier__c, 
+
+IF( 
+( Banque__r.Name   &lt;&gt; &quot;CIH BANK&quot;)
+&amp;&amp; (Depot_Banque__c = True) 
+&amp;&amp; ( Retour_a_charges__c = True)
+&amp;&amp; ( Transmettre_Dossier_l_agence__c = False),
+TODAY() - D_Retour_a_charges__c,
+
+IF( 
+( Banque__r.Name   &lt;&gt; &quot;CIH BANK&quot;)
+&amp;&amp; (Depot_Banque__c = True) 
+&amp;&amp; ( Retour_a_charges__c = True)
+&amp;&amp; ( Transmettre_Dossier_l_agence__c = True),
+Date_accord_dossier__c - D_Retour_a_charges__c,
+
+If( 
+( Banque__r.Name = &quot;CIH BANK&quot;)
+&amp;&amp; ( Dossier_Complet__c   = True)
+&amp;&amp; (Pieces_manquantes_P1__c = False)
+&amp;&amp;(Transmettre_Dossier_l_agence__c = False),
+TODAY() -  Date_Compl_tude_Dossier__c ,
+
+If( 
+( Banque__r.Name = &quot;CIH BANK&quot;)
+&amp;&amp; (Dossier_Complet__c = True)
+&amp;&amp; (Pieces_manquantes_P1__c = False)
+&amp;&amp;(Transmettre_Dossier_l_agence__c = True),
+Date_accord_dossier__c - Date_Compl_tude_Dossier__c, 
+
+IF( 
+( Banque__r.Name = &quot;CIH BANK&quot;)
+&amp;&amp; (Dossier_Complet__c = True) 
+&amp;&amp; (Pieces_manquantes_P1__c = True)
+&amp;&amp; ( Transmettre_Dossier_l_agence__c = False),
+TODAY() - Date_Compl_tude_Dossier__c, 
+
+IF( 
+( Banque__r.Name = &quot;CIH BANK&quot;)
+&amp;&amp; (Dossier_Complet__c = True) 
+&amp;&amp; (Pieces_manquantes_P1__c = True)
+&amp;&amp; ( Transmettre_Dossier_l_agence__c = True),
+Date_accord_dossier__c - Date_Compl_tude_Dossier__c, 
+
+IF( 
+( Banque__r.Name = &quot;CIH BANK&quot;)
+&amp;&amp; (Dossier_Complet__c = True) 
+&amp;&amp; ( Retour_a_charges__c = True)
+&amp;&amp; ( Transmettre_Dossier_l_agence__c = False),
+TODAY() - D_Retour_a_charges__c,
+
+IF( 
+( Banque__r.Name = &quot;CIH BANK&quot;)
+&amp;&amp; (Dossier_Complet__c = True) 
+&amp;&amp; ( Retour_a_charges__c = True)
+&amp;&amp; ( Transmettre_Dossier_l_agence__c = True),
+Date_accord_dossier__c - D_Retour_a_charges__c,
+
+0))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Délai d’obtention d’OPC</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

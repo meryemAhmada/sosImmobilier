@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RetroCom_Total_pay_Net_en_V_Super__c</fullName>
+    <externalId>false</externalId>
+    <formula>RetroCom_Pay_1_Net_en_V_Super_appo__c + RetroCom_Pay_2_Net_en_V_Super_appo__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>RetroCom - Total payé - Net en V -Super</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>
