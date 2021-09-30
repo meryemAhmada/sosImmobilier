@@ -89,6 +89,7 @@ public class TR002_DossierHandler {
     }
 
     private static String evaluateSingleCondition(String condition , Dossier__c dossier , String objectName){
+        system.debug('** ' + condition);
         List<String> elements = condition.split(':');
         //default case
         if(elements.size() == 2){

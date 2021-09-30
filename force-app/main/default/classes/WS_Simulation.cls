@@ -5,7 +5,7 @@
 		try {
             
 			System.debug('**** PUSH TO SF ****');
-
+			System.debug('** DATA : ' +  RestContext.request.requestBody.toString());
 			Data data = (Data) JSON.deserialize(RestContext.request.requestBody.toString(), Data.class);
 			System.debug('** DATA : ' + data);
 			API_Calls_Monitor__c apiCall = new API_Calls_Monitor__c();
@@ -14,13 +14,22 @@
 
 			/* SEARCH CONTACTS OR LEADS WITH SAME PHONE  */
 
-			System.debug('** PHONE : ' + data.phone);
+			List<List <sObject>> searchList = new List<List <sObject>> ();
+			
+			if(!String.isEmpty(data.phone)){
+				System.debug('** PHONE : ' + data.phone);
+				String mobilePhone = data.phone.right(9);
+				System.debug('** mobilePhone : ' + mobilePhone);
+				//List<List<sObject>> searchList = [FIND :mobilePhone IN PHONE FIELDS RETURNING Contact(Id, Email, OwnerId LIMIT 1), Lead(Id, Email, OwnerId LIMIT 1)];
+				String q = 'FIND {' + mobilephone + ' OR ' + data.phone.replace('+' , '\\+') + '}  IN PHONE FIELDS RETURNING Contact(Id, Email, OwnerId LIMIT 1), Lead(Id, Email, OwnerId LIMIT 1)';
+				//String q = 'FIND {0*' + mobilephone + ' OR \\+*' + mobilephone + ' OR ' + mobilephone + '}  IN PHONE FIELDS RETURNING Contact(Id, Email, OwnerId LIMIT 1), Lead(Id, Email, OwnerId LIMIT 1)';
+				searchList  = search.query(q);
+			}
+			
+            
+            List<GroupMember> groupMembers = [Select Id, group.type, group.id, UserOrGroupId From GroupMember where group.developerName = 'Commerciaux_lead_immo'];
+			
 			List<Id> usersIdsInGroup = new List<Id>();
-			String mobilePhone = data.phone.right(9);
-			System.debug('** mobilePhone : ' + mobilePhone);
-			List<List<sObject>> searchList = [FIND :mobilePhone IN PHONE FIELDS RETURNING Contact(Id, Email, OwnerId LIMIT 1), Lead(Id, Email, OwnerId LIMIT 1)];
-			List<GroupMember> groupMembers = [Select Id, group.type, group.id, UserOrGroupId From GroupMember where group.developerName = 'Commerciaux_lead_immo'];
-
 			for(GroupMember gm :groupMembers) {
 				usersIdsInGroup.add(gm.UserOrGroupId);
 			}
@@ -41,6 +50,17 @@
 			}
 
 			System.debug('--> OBJECT FOUND : ' + obj);
+
+			//Update of 09/09/2021
+			Id conseillere;
+			if(!String.isEmpty(data.created_by)) {
+				List<User> conseilleres = [Select Id , email From User Where email = :data.created_by];
+				if(conseilleres.size()>0)
+				conseillere = conseilleres.get(0).Id;
+                
+			}
+
+        system.debug('**Conseillere'+conseillere);
 
 			/* TREATMENT */
 
@@ -67,8 +87,8 @@
                 
                 //Update Of 31/08/2021
                 //Si sent_email_client est renseigné, on ecrase l'ancienne et on prend la valeur de celle-ci
-                if(!String.isEmpty(data.sent_email_client)) 
-					obj.put('Email', data.sent_email_client);
+                /*if(!String.isEmpty(data.sent_email_client)) 
+					obj.put('Email', data.sent_email_client);*/
                 
 				//UPDATE Registred
 				System.debug('--> UPDATE Registred');
@@ -89,7 +109,18 @@
                 obj.put('Age_calcul_EFD_date_de_naissance_X__c', data.client_age);
 				
 				if(!usersIdsInGroup.contains((Id) obj.get('ownerid'))) {
-					LeadContactMethods.assignLeadContact(obj.Id);
+					if(!String.isEmpty(data.created_by) && !String.isEmpty(conseillere)){
+						obj.put('ownerid' , conseillere);
+						
+                        if(obj.getsObjectType().getDescribe().getName() == 'Lead'){
+							obj.put('Do_Not_Reassign__c' , true);
+                            obj.put('reassigner__c' , true);
+						}
+							
+					}
+					else{
+						LeadContactMethods.assignLeadContact(obj.Id);
+					}
 				}
 
 				update obj;
@@ -164,7 +195,7 @@
                                                               		OC_Mensualit_estim_e_X__c = data.simulation.oc_echeance_mensuelle,
                                                               
                                                                     //Update of 30/08/2021
-                                                                    tes_vous_rentier__c = data.simulation.is_rentier == null ? false : data.simulation.is_rentier 
+                                                                    tes_vous_rentier__c = data.simulation.is_rentier == null ? false : data.simulation.is_rentier
 																  );
 
 						if(obj.getsObjectType().getDescribe().getName() == 'Contact')
@@ -200,8 +231,9 @@
             else {
                 //Si sent_email_client est renseigné, on ecrase l'ancienne et on prend la valeur de celle-ci
                 //Update Of 31/08/2021
-                if(! String.isEmpty(data.sent_email_client)) data.email = data.sent_email_client;
+                //if(! String.isEmpty(data.sent_email_client)) data.email = data.sent_email_client;
                 
+				
 				//APPORTEUR
 				Id apporteurId;
 				Id MCI_parrainId;
@@ -209,7 +241,9 @@
 
 				//Account MubawabAcc = [SELECT id, Name from Account where id =: Label.Mubawab_Account limit 1];
 
-				if(!String.isEmpty(data.apporteur_ID)) {
+				//Une simulation avec recap_envoye = true ==> simulation créé par une conseillère depuis le backoffice
+				//Une conseillaire ne peut pas créer une simulation pour un lead avec un apporteur Id (Fadila confirmation)
+				if(!String.isEmpty(data.apporteur_ID) && String.isEmpty(data.created_by)) {
 					List<Contact> contacts = [SELECT Id, AccountId, First_Affiliate_Lead_Owner__c  FROM Contact WHERE MCI_User_ID__c = :data.apporteur_ID LIMIT 1];
 					System.debug('--> Contact WITH MCI USER ID == APPORTEUR ID : ' + contacts);
 
@@ -264,6 +298,7 @@
 					public String utm_var;
 				
 				*/
+				
 				if((data.email) != null && (data.email).contains('@mubawab.com')) {
 					lead = new Lead(LastName = (data.name != null && data.name != '')? data.name : data.MCI_User_ID,
                                    Company = 'Mubawab', LeadSource = 'Siteweb', MobilePhone = data.phone, Email = data.email, 
@@ -286,6 +321,13 @@
 								   Ville_de_r_sidence_si_Maroc__c = data.ville_naissance , Date_de_naissance__c = (String.isEmpty(data.date_naissance)) ? null : date.newInstance(integer.valueOf(data.date_naissance.split('/', 3)[2]),integer.valueOf(data.date_naissance.split('/', 3)[1]),integer.valueOf(data.date_naissance.split('/', 3)[0])) , 
 								   Niveau_acad_mique__c = data.niveau_academique , Age_remplis_par_le_client_X__c = data.age , Age_calcul_EFD_date_de_naissance_X__c = data.client_age 
 								   );
+
+					if(!String.isEmpty(data.created_by) && !String.isEmpty(conseillere)){
+						lead.ownerId = conseillere;
+						lead.Do_Not_Reassign__c = true;
+                        lead.reassigner__c = true;
+					} 
+
 					insert lead;
 
 				} else {
@@ -310,7 +352,14 @@
 									Ville_de_r_sidence_si_Maroc__c = data.ville_naissance , Date_de_naissance__c = (String.isEmpty(data.date_naissance)) ? null : date.newInstance(integer.valueOf(data.date_naissance.split('/', 3)[2]),integer.valueOf(data.date_naissance.split('/', 3)[1]),integer.valueOf(data.date_naissance.split('/', 3)[0])) , 
 									Niveau_acad_mique__c = data.niveau_academique  , Age_remplis_par_le_client_X__c = data.age , Age_calcul_EFD_date_de_naissance_X__c = data.client_age
                                    );
+						if(!String.isEmpty(data.created_by) && !String.isEmpty(conseillere)){
+                            system.debug('** ownerId '+conseillere);
+							lead.ownerId = conseillere;
+							lead.Do_Not_Reassign__c = true;
+                            lead.reassigner__c = true;
+						}
 					insert lead;
+                    system.debug('** inserted lead '+lead);
 
 				}
 
@@ -324,7 +373,7 @@
 					response.statusCode = 200;
 				}
 				System.debug('--> LEAD : ' + lead);
-
+System.debug('--> '+ InsertLeadAdvisor);
 
 				//INSERT NEW SIMULATION
 				if(!String.isEmpty(data.simulation.MCI_SIM_ID)) {
@@ -398,7 +447,7 @@
                                                  OC_Mensualit_estim_e_X__c = data.simulation.oc_echeance_mensuelle,
                                                  
                                                  //Update of 30/08/2021
-                                                 tes_vous_rentier__c = data.simulation.is_rentier == null ? false : data.simulation.is_rentier 
+                                                 tes_vous_rentier__c = data.simulation.is_rentier == null ? false : data.simulation.is_rentier
 												 );
 					}
 				}else{
@@ -448,9 +497,9 @@
 		public String niveau_academique;
         public Decimal age;
         public Decimal client_age;
-		
-        //Update Of 31/08/2021
-        public String sent_email_client;
+
+		//Update of 10/09/2021
+		public String created_by;
         
         public Simulation simulation;
 	}
@@ -518,6 +567,7 @@
         public String projets_conventionne;
         //Update of 30/08/2021
         public Boolean is_rentier;
+
 
 	}
 

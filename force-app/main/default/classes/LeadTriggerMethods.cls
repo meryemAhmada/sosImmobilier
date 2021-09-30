@@ -36,27 +36,30 @@ public class LeadTriggerMethods {
             if(l.lastname != null && l.mobilephone != null) {
                 String lead_phone = l.mobilephone.replaceAll('\\D','');
                 lead_phone = lead_phone.trim();
-                String lead_phone2 = lead_phone.substring(lead_phone.length() - 9, lead_phone.length());
-                System.debug('--> lead_phone2 : ' + lead_phone2);
-                List<List<sObject>> searchList = [FIND :lead_phone2 IN PHONE FIELDS RETURNING Contact(Id, Email LIMIT 1), Lead(Id, Email LIMIT 1)];
-                sObject obj;
-                
-                if(!searchList.isEmpty() && searchList.size() > 0) {
-                    //CONTACT
-                    if(!searchList [0].isEmpty() && searchList [0].size() > 0) {
-                        obj = searchList [0] [0];
+                if(!String.isEmpty(lead_phone)){
+                    String lead_phone2 = lead_phone.substring(lead_phone.length() - 9, lead_phone.length());
+                    System.debug('--> lead_phone2 : ' + lead_phone2);
+                    List<List<sObject>> searchList = [FIND :lead_phone2 IN PHONE FIELDS RETURNING Contact(Id, Email LIMIT 1), Lead(Id, Email LIMIT 1)];
+                    sObject obj;
+                    
+                    if(!searchList.isEmpty() && searchList.size() > 0) {
+                        //CONTACT
+                        if(!searchList [0].isEmpty() && searchList [0].size() > 0) {
+                            obj = searchList [0] [0];
+                        }
+                        //LEAD
+                        else if(!searchList [1].isEmpty() && searchList [1].size() > 0) {
+                            obj = searchList [1] [0];
+                        }
                     }
-                    //LEAD
-                    else if(!searchList [1].isEmpty() && searchList [1].size() > 0) {
-                        obj = searchList [1] [0];
+                    
+                    System.debug('--> OBJECT FOUND : ' + obj);
+                    
+                    if(obj != NULL) {
+                        ErrorMessage = 'Phone found on existing record';
                     }
                 }
                 
-                System.debug('--> OBJECT FOUND : ' + obj);
-                
-                if(obj != NULL) {
-                    ErrorMessage = 'Phone found on existing record';
-                }
                 
             }
             
