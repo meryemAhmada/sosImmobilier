@@ -4,11 +4,11 @@
     <protected>false</protected>
     <values>
         <field>Condition__c</field>
-        <value xsi:type="xsd:string">Profession__c:Rentier</value>
+        <value xsi:type="xsd:string">Profession__c:Rentier;Simulation__c:tes_vous_rentier__c:==:true</value>
     </values>
     <values>
         <field>Document_Date_Field_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">D_Contrat_de_bail__c</value>
     </values>
     <values>
         <field>Document_Field_Name__c</field>
@@ -20,7 +20,7 @@
     </values>
     <values>
         <field>Operator__c</field>
-        <value xsi:type="xsd:string">1</value>
+        <value xsi:type="xsd:string">1 OR 2</value>
     </values>
     <values>
         <field>Requis__c</field>

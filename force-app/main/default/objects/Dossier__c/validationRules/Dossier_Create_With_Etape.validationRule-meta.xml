@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Dossier_Create_With_Etape</fullName>
-    <active>false</active>
+    <active>true</active>
     <description>Un nouveau dossier ne peut pas être créé et enregistré sans que l&apos;une des étapes ne soient cochées.</description>
     <errorConditionFormula>AND(
 Dossier_Constitue_P1__c = FALSE,

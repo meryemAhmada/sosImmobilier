@@ -2,7 +2,7 @@ trigger TR001_SimmulationLeadAffectation on Simulation__c (after insert , after 
 
     User u = [select Id, Bypass_triggers__c from user where id = :UserInfo.getUserId()];
     List<Simulation__c> simulationToUpdate = new List<Simulation__c>();
-	if (!u.Bypass_triggers__c){
+    if (!u.Bypass_triggers__c){
         if(Trigger.isAfter){
             if(Trigger.isInsert){
                 TR001_SimmulationLeadAffectationHandler.handleBeforeInsert(Trigger.new);

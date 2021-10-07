@@ -14,16 +14,65 @@
 
 			/* SEARCH CONTACTS OR LEADS WITH SAME PHONE  */
 
-			List<List <sObject>> searchList = new List<List <sObject>> ();
-			
+			//List<List <sObject>> searchList = new List<List <sObject>> ();
+			List<Contact> foundContacts = new List<Contact> ();
+            List<Lead> foundLeads = new List<Lead>();
+            
 			if(!String.isEmpty(data.phone)){
 				System.debug('** PHONE : ' + data.phone);
 				String mobilePhone = data.phone.right(9);
 				System.debug('** mobilePhone : ' + mobilePhone);
-				//List<List<sObject>> searchList = [FIND :mobilePhone IN PHONE FIELDS RETURNING Contact(Id, Email, OwnerId LIMIT 1), Lead(Id, Email, OwnerId LIMIT 1)];
+				/*//List<List<sObject>> searchList = [FIND :mobilePhone IN PHONE FIELDS RETURNING Contact(Id, Email, OwnerId LIMIT 1), Lead(Id, Email, OwnerId LIMIT 1)];
 				String q = 'FIND {' + mobilephone + ' OR ' + data.phone.replace('+' , '\\+') + '}  IN PHONE FIELDS RETURNING Contact(Id, Email, OwnerId LIMIT 1), Lead(Id, Email, OwnerId LIMIT 1)';
 				//String q = 'FIND {0*' + mobilephone + ' OR \\+*' + mobilephone + ' OR ' + mobilephone + '}  IN PHONE FIELDS RETURNING Contact(Id, Email, OwnerId LIMIT 1), Lead(Id, Email, OwnerId LIMIT 1)';
-				searchList  = search.query(q);
+				searchList  = search.query(q);*/
+                
+                List<String> contactPhoneFields = new List<String>();
+                Map<String, Schema.SObjectField> contactFields = Schema.SObjectType.Contact.fields.getMap();
+                for (String fieldName : contactFields.keySet()) {
+                    Schema.DescribeFieldResult fieldInfo = contactFields.get(fieldName).getDescribe();
+                    if (fieldInfo.getType() == Schema.DisplayType.PHONE) {
+                        contactPhoneFields.add(fieldName);
+                    }
+                }
+                
+                List<String> leadPhoneFields = new List<String>();
+                Map<String, Schema.SObjectField> leadFields = Schema.SObjectType.Lead.fields.getMap();
+                for (String fieldName : leadFields.keySet()) {
+                    Schema.DescribeFieldResult fieldInfo = leadFields.get(fieldName).getDescribe();
+                    if (fieldInfo.getType() == Schema.DisplayType.PHONE) {
+                        leadPhoneFields.add(fieldName);
+                    }
+                }
+                
+                String query = 'Select Id , email , ownerId , MCI_User_ID__c From Contact where ';
+                if(contactPhoneFields.size() > 0){
+                    for(String phoneField : contactPhoneFields){
+                        query += phoneField + ' like \'%'+ mobilePhone +'\' OR ';
+                    }
+                 	//query = query.substring(0,query.length()-4);
+                 	if(!String.isEmpty(data.MCI_User_ID))
+                 		query += 'MCI_User_ID__c = \''+data.MCI_User_ID+'\'';
+                    else 
+                        query = query.substring(0,query.length()-4);
+                }
+                query += ' order by MCI_User_ID__c nulls last';
+                system.debug('contacts query : ' + query);
+				foundContacts = Database.query(query);
+                
+                query = 'Select Id , email , ownerId , MCI_User_ID__c From Lead where ';
+                if(leadPhoneFields.size() > 0){
+                    for(String phoneField : leadPhoneFields){
+                        query += phoneField + ' like \'%'+ mobilePhone +'\' OR ';
+                    }
+                    if(!String.isEmpty(data.MCI_User_ID))
+                 		query += 'MCI_User_ID__c = \''+data.MCI_User_ID+'\'';
+                    else 
+                        query = query.substring(0,query.length()-4);
+                }
+                query += ' order by MCI_User_ID__c nulls last';
+                foundLeads = Database.query(query);
+				system.debug('Leads query : ' + query);             
 			}
 			
             
@@ -37,7 +86,7 @@
 
 			sObject obj;
 
-			if(!searchList.isEmpty() && searchList.size() > 0) {
+			/*if(!searchList.isEmpty() && searchList.size() > 0) {
 				//CONTACT
 				if(!searchList [0].isEmpty() && searchList [0].size() > 0) {
 					obj = searchList [0] [0];
@@ -47,7 +96,42 @@
 				else if(!searchList [1].isEmpty() && searchList [1].size() > 0) {
 					obj = searchList [1] [0];
 				}
-			}
+			}*/
+            
+            //Map with MCI User Id First
+				//CONTACT
+				if(!foundContacts.isEmpty() && foundContacts.size() > 0) {
+                    for(Contact contact : foundContacts){
+                        if(data.MCI_User_ID == contact.MCI_User_ID__c){
+                            obj = contact;
+                        }
+                    }
+                    system.debug('Map with MCI User Id First Contact ' + obj);
+				}
+				//LEAD
+				if(!foundLeads.isEmpty() && foundLeads.size() > 0 && obj == null) {
+					for(Lead lead : foundLeads){
+                        if(data.MCI_User_ID == lead.MCI_User_ID__c){
+                            obj = lead;
+                        }
+                    }
+                    system.debug('Map with MCI User Id First Lead ' + obj);
+				}
+            
+            system.debug('Map with MCI User Id First ' + obj);
+			
+            //Map with random contact or lead where phone number matches
+            if(obj == null){
+                if(!foundContacts.isEmpty() && foundContacts.size() > 0) {
+                    obj = foundContacts[0];
+				}
+				//LEAD
+				else if(!foundLeads.isEmpty() && foundLeads.size() > 0) {
+					obj = foundLeads[0];
+				}
+            }
+            
+            system.debug('Map with random contact or lead where phone number matches ' + obj);
 
 			System.debug('--> OBJECT FOUND : ' + obj);
 
@@ -92,6 +176,7 @@
                 
 				//UPDATE Registred
 				System.debug('--> UPDATE Registred');
+                if(data.registered != null)
 				obj.put('Registered__c', data.registered);
 				//UPDATE profession
 				System.debug('--> UPDATE profession');
@@ -107,7 +192,10 @@
 				obj.put('Niveau_acad_mique__c', data.niveau_academique);
                 obj.put('Age_remplis_par_le_client_X__c', data.age);
                 obj.put('Age_calcul_EFD_date_de_naissance_X__c', data.client_age);
-				
+                
+				if(!String.isEmpty(data.phone))
+                    obj.put('MobilePhone', data.phone);
+                
 				if(!usersIdsInGroup.contains((Id) obj.get('ownerid'))) {
 					if(!String.isEmpty(data.created_by) && !String.isEmpty(conseillere)){
 						obj.put('ownerid' , conseillere);
@@ -116,14 +204,22 @@
 							obj.put('Do_Not_Reassign__c' , true);
                             obj.put('reassigner__c' , true);
 						}
-							
+						update obj;	
 					}
 					else{
+                        update obj;
 						LeadContactMethods.assignLeadContact(obj.Id);
 					}
 				}
-
-				update obj;
+                else{
+                    update obj;
+                }
+				if(obj.getsObjectType().getDescribe().getName() == 'Lead'){
+                	obj = [Select Id , OwnerId From Lead Where Id = :obj.Id];
+                }
+                else if(obj.getsObjectType().getDescribe().getName() == 'Contact'){
+                	obj = [Select Id , OwnerId From Contact Where Id = :obj.Id];
+                }
 
 				//INSERT NEW SIMULATION
 				if(!String.isEmpty(data.simulation.MCI_SIM_ID)) {
@@ -214,7 +310,7 @@
 						insert sim;
 				}
 
-                system.debug('**ownerid'+(Id)obj.get('ownerid'));
+                system.debug('**ownerid : '+(Id)obj.get('ownerid'));
                 List<User> users = [SELECT Name, Email, Phone, MobilePhone, Id FROM User WHERE Id = :(Id)obj.get('ownerid')];
                 system.debug('***users'+users.size());
 				User InsertLeadAdvisor = [SELECT Name, Email, Phone, MobilePhone, Id FROM User WHERE Id = :(Id)obj.get('ownerid')];
@@ -315,13 +411,13 @@
                                    Do_Not_Reassign__c = Do_Not_Reassign,
 								   CreatedWithSim__c = (!String.isEmpty(data.simulation.MCI_SIM_ID)) ? true :false, 
 								   Profession__c = data.profession, 
-                                    First_call_to_action__c = data.first_call_to_action, Registered__c = data.registered,
+                                    First_call_to_action__c = data.first_call_to_action, 
 								   Sexe__c = data.sexe , Nationalite__c = data.nationality , 
                                    Pays_de_r_sidence__c = data.country , 
 								   Ville_de_r_sidence_si_Maroc__c = data.ville_naissance , Date_de_naissance__c = (String.isEmpty(data.date_naissance)) ? null : date.newInstance(integer.valueOf(data.date_naissance.split('/', 3)[2]),integer.valueOf(data.date_naissance.split('/', 3)[1]),integer.valueOf(data.date_naissance.split('/', 3)[0])) , 
 								   Niveau_acad_mique__c = data.niveau_academique , Age_remplis_par_le_client_X__c = data.age , Age_calcul_EFD_date_de_naissance_X__c = data.client_age 
 								   );
-
+					if(data.registered != null) lead.Registered__c = data.registered;
 					if(!String.isEmpty(data.created_by) && !String.isEmpty(conseillere)){
 						lead.ownerId = conseillere;
 						lead.Do_Not_Reassign__c = true;
@@ -346,12 +442,13 @@
                                      Do_Not_Reassign__c = Do_Not_Reassign,
 								     CreatedWithSim__c = (!String.isEmpty(data.simulation.MCI_SIM_ID)) ? true :false, 
 								     Profession__c = data.profession, 
-                                    First_call_to_action__c = data.first_call_to_action, Registered__c = data.registered,
+                                     First_call_to_action__c = data.first_call_to_action,
 									 Sexe__c = data.sexe , Nationalite__c = data.nationality , 
                                      Pays_de_r_sidence__c = data.country , 
-									Ville_de_r_sidence_si_Maroc__c = data.ville_naissance , Date_de_naissance__c = (String.isEmpty(data.date_naissance)) ? null : date.newInstance(integer.valueOf(data.date_naissance.split('/', 3)[2]),integer.valueOf(data.date_naissance.split('/', 3)[1]),integer.valueOf(data.date_naissance.split('/', 3)[0])) , 
-									Niveau_acad_mique__c = data.niveau_academique  , Age_remplis_par_le_client_X__c = data.age , Age_calcul_EFD_date_de_naissance_X__c = data.client_age
+									 Ville_de_r_sidence_si_Maroc__c = data.ville_naissance , Date_de_naissance__c = (String.isEmpty(data.date_naissance)) ? null : date.newInstance(integer.valueOf(data.date_naissance.split('/', 3)[2]),integer.valueOf(data.date_naissance.split('/', 3)[1]),integer.valueOf(data.date_naissance.split('/', 3)[0])) , 
+									 Niveau_acad_mique__c = data.niveau_academique  , Age_remplis_par_le_client_X__c = data.age , Age_calcul_EFD_date_de_naissance_X__c = data.client_age
                                    );
+                    if(data.registered != null) lead.Registered__c = data.registered;
 						if(!String.isEmpty(data.created_by) && !String.isEmpty(conseillere)){
                             system.debug('** ownerId '+conseillere);
 							lead.ownerId = conseillere;
@@ -373,7 +470,7 @@
 					response.statusCode = 200;
 				}
 				System.debug('--> LEAD : ' + lead);
-System.debug('--> '+ InsertLeadAdvisor);
+				System.debug('--> '+ InsertLeadAdvisor);
 
 				//INSERT NEW SIMULATION
 				if(!String.isEmpty(data.simulation.MCI_SIM_ID)) {
@@ -567,7 +664,6 @@ System.debug('--> '+ InsertLeadAdvisor);
         public String projets_conventionne;
         //Update of 30/08/2021
         public Boolean is_rentier;
-
 
 	}
 

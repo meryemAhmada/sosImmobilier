@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>Document_Date_Field_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">D_Bulletins_de_paie_6mois__c</value>
     </values>
     <values>
         <field>Document_Field_Name__c</field>

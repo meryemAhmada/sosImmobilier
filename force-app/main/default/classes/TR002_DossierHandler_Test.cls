@@ -5,8 +5,10 @@ public class TR002_DossierHandler_Test {
     public static void setup(){
         
         List<Contact> contacts = TestFactory.createContactsWithSpecificData(null , 'maroc' , 'Rentier' , 'maroc' , 1, true);
-        List<Simulation__c> sims = TestFactory.createSimulationsWithSpecificData(contacts.get(0).Id , 'Contact__c', true , 'Appartement' , 'Rachat de crédit immobilier' , false , 0 , 10 , 1, true);
-        Dossier__c dossier = new Dossier__c(Simulation__c = sims.get(0).Id , Contact__c = contacts.get(0).Id);
+        List<Simulation__c> sims = TestFactory.createSimulationsWithSpecificData(contacts.get(0).Id , 'Contact__c', true , 'Appartement' , 'Rachat de crédit immobilier' , false , 0 , 10 , 1, false);
+        sims.get(0).resultat__c='Trouvé le bien-AFD'; sims.get(0).Statut__c='Qualifié';sims.get(0).Actif__c  = true;
+        insert sims;
+        Dossier__c dossier = new Dossier__c(Simulation__c = sims.get(0).Id , Contact__c = contacts.get(0).Id, Dossier_Constitue_P1__c  = true);
         insert dossier;
     }
     
@@ -14,7 +16,7 @@ public class TR002_DossierHandler_Test {
     public static void case1(){
         Simulation__c sim = [Select Id From Simulation__c Limit 1];
         Contact con = [Select Id From Contact Limit 1];
-        Dossier__c dossier = new Dossier__c(Simulation__c = sim.Id , Contact__c = con.Id);
+        Dossier__c dossier = new Dossier__c(Simulation__c = sim.Id , Contact__c = con.Id , Dossier_Constitue_P1__c  = true);
         Test.startTest();
         insert dossier;
         Test.stopTest();
@@ -37,7 +39,7 @@ public class TR002_DossierHandler_Test {
     public static void case3(){
         Dossier__c dossier = [Select Id , Contact__c From Dossier__c LIMIT 1];
         Contact contact = [Select Id , Pays_de_r_sidence__c , Profession__c , Nationalite__c FROM Contact Where Id = :dossier.contact__c];
-		contact.Nationalite__c = 'maroc'; contact.Pays_de_r_sidence__c = 'maroc'; contact.Profession__c='Salarié - secteur public (fonctionnaire)';
+        contact.Nationalite__c = 'maroc'; contact.Pays_de_r_sidence__c = 'maroc'; contact.Profession__c='Salarié - secteur public (fonctionnaire)';
         
         Test.startTest();
         update contact;
@@ -56,7 +58,7 @@ public class TR002_DossierHandler_Test {
     public static void case4(){
         Dossier__c dossier = [Select Id , Contact__c From Dossier__c LIMIT 1];
         Contact contact = [Select Id , Pays_de_r_sidence__c , Profession__c , Nationalite__c FROM Contact Where Id = :dossier.contact__c];
-		contact.Nationalite__c = 'maroc'; contact.Pays_de_r_sidence__c = 'maroc'; contact.Profession__c='Salarié - Secteur privé';
+        contact.Nationalite__c = 'maroc'; contact.Pays_de_r_sidence__c = 'maroc'; contact.Profession__c='Salarié - Secteur privé';
         
         Test.startTest();
         update contact;

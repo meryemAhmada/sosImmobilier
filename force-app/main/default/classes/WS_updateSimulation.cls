@@ -3,7 +3,7 @@
 	global static void pushToSF() {
 		RestResponse response = RestContext.response;
 		try {
-            
+            List<User> conseilleres;
             
 			System.debug('**** PUSH TO SF ****');
 
@@ -14,6 +14,8 @@
 			insert apiCall;
 
             Id ownerId;
+            Id contactId;
+            
             SYSTEM.debug(data.simulation.MCI_SIM_ID);
             //Update Simulation
             if(!String.isEmpty(data.simulation.MCI_SIM_ID )){
@@ -80,7 +82,7 @@
                         else sim.tes_vous_rentier__c = false;
 
                         if(!String.isEmpty(data.simulation.sent_email_ma)) {
-                            List<User> conseilleres = [Select Id , email From User Where email = :data.simulation.sent_email_ma];
+                            conseilleres = [Select Id , email From User Where email = :data.simulation.sent_email_ma];
                             if(conseilleres.size()>0) sim.Conseill_re__c  = conseilleres.get(0).Id;
                         }
                         else sim.Conseill_re__c  = null;
@@ -123,13 +125,19 @@
 
                         sim.Modalit_de_paiement_de_l_ADI_OC__c = data.simulation.oc_modalite_paiement_assurance_deces_invalidite;
                         sim.OC_Mensualit_estim_e_X__c = data.simulation.oc_echeance_mensuelle;
+                        sim.Statut__c  = data.simulation.sim_selected_statut;
+                        sim.Resultat__c = data.simulation.sim_selected_resultat;
+                        sim.Motif__c = data.simulation.sim_selected_motif;
+                        
+                        if(data.simulation.recap_envoye!= null && data.simulation.recap_envoye) sim.Actif__c = true;
 						update sim;
                         
-
+                        
                         if(! String.isEmpty(simulations[0].Contact__c)){
                             List<Contact> contacts = [Select Id, OwnerId from Contact where Id = :simulations[0].Contact__c];
                             system.debug(contacts.size());
                             if(contacts.size() > 0){
+                                contactId = (Id)contacts[0].Id;
                                 ownerId = (Id)contacts[0].ownerId;
                                 
                                 Contact contact = new Contact();
@@ -137,7 +145,7 @@
 
                                 contact.put('Email', data.email);
 
-                                if(data.email != null)
+                                if(data.registered != null)
                                 contact.put('Registered__c', data.registered);
 
                                 contact.put('Profession__c', data.profession);
@@ -161,6 +169,8 @@
                                 
                                 contact.put('Age_calcul_EFD_date_de_naissance_X__c', data.client_age);
                                 
+                                if(! String.isEmpty(data.phone)) contact.put('MobilePhone', data.phone);
+                                
                                 //Update of 31/08/2021
                                 //Si sent_email_client la valeur email sera ecrasé et prendra comme valeur sent_email_client
                                 if(!String.isEmpty(data.sent_email_client)) contact.put('Email', data.sent_email_client);
@@ -183,7 +193,7 @@
                                 if(!String.isEmpty(data.email)) lead.company = (data.email).contains('@mubawab.com') ? 'Mubawab' : 'MeilleurCreditImmo.ma';
                                //else lead.company = null;
 
-                                lead.MobilePhone  = data.phone;
+                                if(! String.isEmpty(data.phone)) lead.MobilePhone  = data.phone;
                                 lead.utm_source__c  = data.utm_source;
                                 lead.utm_campaign__c  = data.utm_campaign;
                                 lead.utm_ciblage__c  = data.utm_ciblage;
@@ -220,8 +230,41 @@
                                 
                                 update lead;
                                 
+                                if(data.simulation.recap_envoye != null && data.simulation.recap_envoye){
+                                    //Convert Lead
+                                    LeadStatus convertStatus = [SELECT Id, MasterLabel FROM LeadStatus WHERE IsConverted = true LIMIT 1];
+
+                                    Database.LeadConvert lc = new database.LeadConvert();
+                                    lc.setLeadId(lead.Id);
+                                    if((lead.email) != null && (lead.email).contains('@mubawab.com')) 
+                                        lc.setAccountId(Label.Mubawab_Account);
+                                    lc.setDoNotCreateOpportunity(true);
+                                    lc.setConvertedStatus(convertStatus.MasterLabel);
+        
+                                    Database.LeadConvertResult lcr = Database.convertLead(lc);
+                                    System.debug('--> CONVERT LEAD ? ' + lcr.isSuccess());
+                                    
+                                    if(lcr.isSuccess())
+                                    contactId = lcr.getContactId();
+                                }
+                                
                             }
                         }
+                        
+                        if(data.simulation.recap_envoye!= null && data.simulation.recap_envoye && !String.isEmpty(data.simulation.sim_selected_resume_dappel) ){
+                            insert (new Task(Description = data.simulation.sim_selected_resume_dappel,
+                                             Priority = 'Normal', 
+                                             Status = 'Completed', 
+                                             TaskSubtype = 'Call',
+                                             Subject = Label.Nouveau_appel ,
+                                             ActivityDate = sim.Date_Gen_PAP__c,
+                                             WhatId = sim.Id,
+                                             WhoId = contactId,
+                                             CreatedById = conseilleres.size()>0 ? conseilleres.get(0).Id : null,
+                                             OwnerId = conseilleres.size()>0 ? conseilleres.get(0).Id : null,
+                                             Type='Call')); 
+                        }
+
 					}
             }
             
@@ -349,6 +392,11 @@
         public Boolean is_rentier;
         public String sent_email_ma;
         public String date_send_recap;
+        //Update of 17/09/2021
+		public String sim_selected_statut;
+        public String sim_selected_resultat;
+        public String sim_selected_motif;
+        public String sim_selected_resume_dappel;
 	}
 
 

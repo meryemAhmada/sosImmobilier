@@ -25,6 +25,31 @@ public class TestFactory {
         return listUsers;
     }
     
+    public static List<User> createAdmins(Integer n, Boolean doInsert)
+    {
+        Id profileID = [Select Id FROM Profile WHERE Name = 'System Administrator'].id;
+        List<User> listUsers = new List<User>();
+        User u;
+        for(Integer i = 0 ; i < n; i++)
+        {
+            u = new User();
+            u.LastName = EncodingUtil.convertToHex(crypto.generateAesKey(128)).substring(0,10);
+            u.Email = EncodingUtil.convertToHex(crypto.generateAesKey(128)).substring(0,6)+'@'+EncodingUtil.convertToHex(crypto.generateAesKey(128)).substring(0,4)+'.com';
+            u.UserName = EncodingUtil.convertToHex(crypto.generateAesKey(128)).substring(0,6)+'@'+EncodingUtil.convertToHex(crypto.generateAesKey(128)).substring(0,4)+'.com';
+            u.Alias = EncodingUtil.convertToHex(crypto.generateAesKey(128)).substring(0,5);
+            u.profileId = profileID;
+            u.TimeZoneSidKey = 'GMT';
+            u.LanguageLocaleKey = 'en_US';
+            u.EmailEncodingKey = 'UTF-8';
+            u.LocaleSidKey = 'en_US';
+            u.Bypass_VR__c = true;
+            listUsers.add(u);
+        }
+        
+        if(doInsert) insert listUsers;
+        return listUsers;
+    }
+    
     public static Id createPublicGroup(SET<Id> members, String Name)
     {
         Group newGroup = new Group();

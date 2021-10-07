@@ -1249,6 +1249,10 @@
             <default>true</default>
         </values>
         <values>
+            <fullName>Requis</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Reçu copie</fullName>
             <default>false</default>
         </values>

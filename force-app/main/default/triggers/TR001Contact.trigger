@@ -1,6 +1,5 @@
 trigger TR001Contact on Contact (before insert, before update, after insert, after update) {
 
-
     /*if (Trigger.isBefore) {
         if (Trigger.isInsert || Trigger.isUpdate) {
 
@@ -615,8 +614,9 @@ trigger TR001Contact on Contact (before insert, before update, after insert, aft
 
     }*/
 
-
-    if(Trigger.isAfter){
+	User u = [select Id, Bypass_triggers__c from user where id = :UserInfo.getUserId()];
+	if (!u.Bypass_triggers__c) {
+    	if(Trigger.isAfter){
         System.debug('**** TRIGGER: AFTER INSERT/UPDATE CONTACT ****');  
 
         Contact oldContact;
@@ -673,5 +673,6 @@ trigger TR001Contact on Contact (before insert, before update, after insert, aft
         if(!Test.isRunningTest() && !System.isBatch()) WS_PushStatusToWebsite.ws_PushDataStatusToWebsite(trigger.newMap.keySet());
 
     }
-
+    }
+        
 }

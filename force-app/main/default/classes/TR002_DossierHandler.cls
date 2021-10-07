@@ -58,8 +58,8 @@ public class TR002_DossierHandler {
             simulationIds.add(dossier.simulation__c);
         }
 
-        Map<String , Contact> contacts = new Map<String , Contact> ((List<Contact>)Database.query('Select Id , Pays_de_r_sidence__c , Profession__c , Nationalite__c FROM Contact Where Id in :contactIds'));
-        Map<String , Simulation__c> simulations = new Map<String , Simulation__c> ((List<Simulation__c>)Database.query('Select Id , Contentieux__c , Type_de_Bien__c , Type_de_cr_dit__c , tes_vous_rentier__c , Montant_des_Frais_de_notaire_enregi_X__c ,  Montant_des_frais_d_am_nagement_inclus_X__c FROM Simulation__c Where Id in :simulationIds'));
+        Map<String , Contact> contacts = new Map<String , Contact> ((List<Contact>)Database.query(Label.Contact_Query));
+        Map<String , Simulation__c> simulations = new Map<String , Simulation__c> ((List<Simulation__c>)Database.query(Label.Simulation_Query));
 
         relatedObject.put('Contact__c' , contacts);
         relatedObject.put('Simulation__c' , simulations);

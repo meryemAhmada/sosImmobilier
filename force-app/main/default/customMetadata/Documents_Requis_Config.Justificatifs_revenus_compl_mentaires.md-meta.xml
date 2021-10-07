@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>Document_Date_Field_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">D_Declaration_sur_l_honneur_des_revenus__c</value>
     </values>
     <values>
         <field>Document_Field_Name__c</field>

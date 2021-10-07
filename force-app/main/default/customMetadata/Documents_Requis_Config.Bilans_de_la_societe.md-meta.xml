@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>Document_Date_Field_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">D_Bilans_CPC_ACTIF_PASSIF_sans_annexes__c</value>
     </values>
     <values>
         <field>Document_Field_Name__c</field>

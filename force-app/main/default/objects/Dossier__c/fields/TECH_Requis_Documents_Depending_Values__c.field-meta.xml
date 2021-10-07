@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TECH_Requis_Documents_Depending_Values__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Simulation__r.Contentieux__c &lt;&gt; False, &apos;yes&apos;,&apos;no&apos;)
+ &amp; &quot;,&quot; &amp; TEXT(Simulation__r.Type_de_Bien__c) &amp; &quot;,&quot; &amp;  TEXT(Simulation__r.Type_de_cr_dit__c)  &amp; &quot;,&quot; &amp; TEXT(contact__r.Pays_de_r_sidence__c) &amp; &quot;,&quot; &amp;  TEXT(contact__r.Profession__c) &amp; &quot;,&quot; &amp;  TEXT(contact__r.Nationalite__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>TECH Requis Documents Depending Values</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

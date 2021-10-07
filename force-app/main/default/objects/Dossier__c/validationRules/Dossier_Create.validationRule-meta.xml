@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Dossier_Create</fullName>
-    <active>false</active>
+    <active>true</active>
     <description>Dossier ne peut être créer que pour une sim HOT &amp; active d&apos;un CONTACT.</description>
     <errorConditionFormula>OR(ISBLANK( Simulation__c ), NOT(AND(Simulation__r.Actif__c = TRUE, Simulation__r.HOT_WARM_COLD__c = &apos;Sim Hot&apos;, NOT(ISBLANK( Simulation__r.Contact__c)))))</errorConditionFormula>
     <errorMessage>Vous ne pouvez pas créer votre dossier qu&apos;à partir d&apos;une simulation HOT &amp; active d&apos;un CONTACT.</errorMessage>

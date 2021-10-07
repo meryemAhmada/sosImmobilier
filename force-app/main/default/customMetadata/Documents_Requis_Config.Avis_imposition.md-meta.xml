@@ -4,11 +4,11 @@
     <protected>false</protected>
     <values>
         <field>Condition__c</field>
-        <value xsi:type="xsd:string">Pays_de_r_sidence__c:Maroc</value>
+        <value xsi:type="xsd:string">Pays_de_r_sidence__c:Autre</value>
     </values>
     <values>
         <field>Document_Date_Field_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">D_Avis_d_imposition_2ans__c</value>
     </values>
     <values>
         <field>Document_Field_Name__c</field>
